@@ -26,6 +26,11 @@ jobs:
         run: |
           curl http://localhost:80 || exit 1
 
+      - name: Start ngrok tunnel
+        run: node tunnel/index.js
+        env:
+          NGROK_AUTHTOKEN: ${{ secrets.NGROK_TOKEN }}
+
       - name: Run Playwright tests
         run: npx playwright test
         env:
