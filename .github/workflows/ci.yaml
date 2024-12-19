@@ -1,0 +1,16 @@
+name: Manual Nginx Deployment
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-nginx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Nginx Container
+        run: |
+          docker run -d -p 80:80 nginx:latest
+      - name: Wait for container to start
+        run: sleep 10
+      - name: Verify Nginx is running
+        run: |
+          curl http://localhost:80 || exit 1
