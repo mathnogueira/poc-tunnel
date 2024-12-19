@@ -1,12 +1,14 @@
-const localtunnel = require("localtunnel");
+const tunnelmole = require("tunnelmole/cjs");
 const { spawn } = require("child_process");
 
 (async function () {
-  const tunnel = await localtunnel({ port: 80 });
+  const url = await tunnelmole({
+    port: 80,
+  });
 
-  console.log(`Ingress established at: ${tunnel.url}`);
+  console.log(`Ingress established at: ${url}`);
 
-  process.env.TARGET_URL = tunnel.url;
+  process.env.TARGET_URL = url;
 
   const playwright = spawn("npx", ["playwright", "test"]);
 

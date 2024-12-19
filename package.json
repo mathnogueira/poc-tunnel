@@ -12,6 +12,7 @@
     "@types/node": "^22.10.2"
   },
   "dependencies": {
-    "localtunnel": "^2.0.2"
+    "localtunnel": "^2.0.2",
+    "tunnelmole": "^2.2.15"
   }
 }
