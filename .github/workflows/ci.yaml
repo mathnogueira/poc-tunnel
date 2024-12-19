@@ -6,6 +6,9 @@ jobs:
   deploy-nginx:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Start Nginx Container
         run: |
           docker run -d -p 80:80 nginx:latest
