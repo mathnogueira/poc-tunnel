@@ -30,8 +30,3 @@ jobs:
         run: node tunnel/index.js
         env:
           NGROK_AUTHTOKEN: ${{ secrets.NGROK_TOKEN }}
-
-    #   - name: Run Playwright tests
-    #     run: npx playwright test
-    #     env:
-    #       TARGET_URL: https://playwright.dev/
