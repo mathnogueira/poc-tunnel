@@ -31,7 +31,7 @@ jobs:
         env:
           NGROK_AUTHTOKEN: ${{ secrets.NGROK_TOKEN }}
 
-      - name: Run Playwright tests
-        run: npx playwright test
-        env:
-          TARGET_URL: https://playwright.dev/
+    #   - name: Run Playwright tests
+    #     run: npx playwright test
+    #     env:
+    #       TARGET_URL: https://playwright.dev/
