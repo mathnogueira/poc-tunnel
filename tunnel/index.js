@@ -4,7 +4,7 @@ const { spawn } = require("child_process");
 (async function () {
   const tunnel = await localtunnel({ port: 80 });
 
-  console.log(`Ingress established at: ${listener.url()}`);
+  console.log(`Ingress established at: ${tunnel.url}`);
 
   process.env.TARGET_URL = tunnel.url;
 
