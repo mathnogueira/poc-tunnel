@@ -9,8 +9,19 @@ jobs:
       - name: Start Nginx Container
         run: |
           docker run -d -p 80:80 nginx:latest
-      - name: Wait for container to start
-        run: sleep 10
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps
+
       - name: Verify Nginx is running
         run: |
           curl http://localhost:80 || exit 1
+
+      - name: Run Playwright tests
+        run: npx playwright test
